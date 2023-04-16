@@ -4,7 +4,7 @@ string[] arrayStrings = CreateArrayStrings();
 
 PrintArray(arrayStrings);
 
-int searchLength = Prompt($"Введите искомую длину строки: ");
+int searchLength = Prompt($"Введите искомую длину строки (целое число): ");
 
 string[] result = SearchElemntsByStringLength(arrayStrings, searchLength);
 
@@ -47,5 +47,7 @@ void PrintArray(string[] arr)
 int Prompt(string text)
 {
     Console.Write(text);
-    return Convert.ToInt32(Console.ReadLine());
+    string str = Console.ReadLine();
+    if (str.Length > 0) return Convert.ToInt32(str);
+    else return 0;
 }
