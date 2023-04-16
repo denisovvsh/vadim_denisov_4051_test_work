@@ -17,6 +17,26 @@ string[] arrayStrings = CreateArrayStrings();
 
 PrintArray(arrayStrings);
 
+int searchLength = Prompt($"Введите искомую длину строки: ");
+
+string[] result = SearchArrayElemByStringLength(arrayStrings, searchLength);
+
+string[] SearchArrayElemByStringLength(string[] arr, int strLength)
+{
+    string[] newArr = new string[arr.Length];
+    int count = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i].Length <= strLength)
+        {
+            newArr[count] = arr[i];
+            count++;
+        }
+    }
+    Array.Resize(ref newArr, count);
+    return newArr;
+}
+
 string[] CreateArrayStrings()
 {
     Console.Write("Введите элементы массива, через запятую: ");
@@ -33,4 +53,10 @@ void PrintArray(string[] arr)
         else Console.Write(arr[i]);
     }
     Console.WriteLine("]");
+}
+
+int Prompt(string text)
+{
+    Console.Write(text);
+    return Convert.ToInt32(Console.ReadLine());
 }
