@@ -21,6 +21,10 @@ int searchLength = Prompt($"Введите искомую длину строк�
 
 string[] result = SearchArrayElemByStringLength(arrayStrings, searchLength);
 
+Console.WriteLine($"Массив из эелементов, длинной <= {searchLength}: ");
+
+PrintArray(result);
+
 string[] SearchArrayElemByStringLength(string[] arr, int strLength)
 {
     string[] newArr = new string[arr.Length];
