@@ -19,23 +19,21 @@ PrintArray(arrayStrings);
 
 int searchLength = Prompt($"Введите искомую длину строки: ");
 
-string[] result = SearchArrayElemByStringLength(arrayStrings, searchLength);
+string[] result = SearchElemntsByStringLength(arrayStrings, searchLength);
 
 Console.WriteLine($"Массив из эелементов, длинной <= {searchLength}: ");
 
 PrintArray(result);
 
-string[] SearchArrayElemByStringLength(string[] arr, int strLength)
+string[] SearchElemntsByStringLength(string[] arr, int strLength)
 {
     string[] newArr = new string[arr.Length];
     int count = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i].Length <= strLength)
-        {
-            newArr[count] = arr[i];
-            count++;
-        }
+        if (arr[i].Length > strLength) continue;
+        newArr[count] = arr[i];
+        count++;
     }
     Array.Resize(ref newArr, count);
     return newArr;
